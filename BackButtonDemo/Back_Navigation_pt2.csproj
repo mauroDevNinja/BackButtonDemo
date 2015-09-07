@@ -7,8 +7,8 @@
     <ProjectGuid>{FBEC6DCD-9621-4E17-B70C-4180A7313878}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BackButtonDemo</RootNamespace>
-    <AssemblyName>BackButtonDemo</AssemblyName>
+    <RootNamespace>Back_Navigation_pt2</RootNamespace>
+    <AssemblyName>Back_Navigation_pt2</AssemblyName>
     <DefaultLanguage>es-ES</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>

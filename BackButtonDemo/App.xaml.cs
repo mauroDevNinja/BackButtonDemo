@@ -17,7 +17,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace BackButtonDemo
+namespace Back_Navigation_pt2
 {
     /// <summary>
     /// Proporciona un comportamiento específico de la aplicación para complementar la clase Application predeterminada.
@@ -30,9 +30,6 @@ namespace BackButtonDemo
         /// </summary>
         public App()
         {
-            Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync(
-                Microsoft.ApplicationInsights.WindowsCollectors.Metadata |
-                Microsoft.ApplicationInsights.WindowsCollectors.Session);
             this.InitializeComponent();
             this.Suspending += OnSuspending;
 
@@ -109,6 +106,14 @@ namespace BackButtonDemo
             Window.Current.Activate();
         }
 
+        private void OnNavigated(object sender, NavigationEventArgs e)
+        {
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                ((Frame)sender).CanGoBack ?
+                AppViewBackButtonVisibility.Visible :
+                AppViewBackButtonVisibility.Collapsed;
+        }
+
         /// <summary>
         /// Se invoca cuando la aplicación la inicia normalmente el usuario final. Se usarán otros puntos
         /// </summary>
@@ -119,13 +124,7 @@ namespace BackButtonDemo
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
 
-        private void OnNavigated(object sender, NavigationEventArgs e)
-        {
-            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
-                ((Frame)sender).CanGoBack ?
-                AppViewBackButtonVisibility.Visible :
-                AppViewBackButtonVisibility.Collapsed;
-        }
+        
 
         /// <summary>
         /// Se invoca al suspender la ejecución de la aplicación. El estado de la aplicación se guarda
